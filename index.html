@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp – Vendor Onboarding Bot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app-wrapper">
+
+        <!-- ══════════════ SIDEBAR NAV ══════════════ -->
+        <aside class="sidebar-nav">
+            <div class="nav-top">
+                <button class="nav-btn active" title="Chats">
+                    <span class="material-icons-round">chat_bubble</span>
+                    <span class="badge red">1</span>
+                </button>
+                <button class="nav-btn" title="Status">
+                    <span class="material-icons-round">donut_large</span>
+                </button>
+                <button class="nav-btn" title="Channels">
+                    <span class="material-icons-round">campaign</span>
+                </button>
+                <button class="nav-btn" title="Communities">
+                    <span class="material-icons-round">group</span>
+                </button>
+            </div>
+            <div class="nav-bottom">
+                <button class="nav-btn" title="Archived">
+                    <span class="material-icons-round">archive</span>
+                </button>
+                <button class="nav-btn" title="Settings">
+                    <span class="material-icons-round">settings</span>
+                </button>
+                <div class="nav-avatar">
+                    <img src="https://ui-avatars.com/api/?name=V&background=2a3942&color=fff&size=36" alt="Profile" />
+                </div>
+            </div>
+        </aside>
+
+        <!-- ══════════════ CHAT LIST ══════════════ -->
+        <section class="chat-list-panel">
+            <div class="chat-list-header">
+                <h1 class="chats-title">Chats</h1>
+                <div class="header-actions">
+                    <button class="icon-btn"><span class="material-icons-round"
+                            style="font-size:20px;">edit_square</span></button>
+                    <button class="icon-btn"><span class="material-icons-round"
+                            style="font-size:20px;">more_vert</span></button>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <span class="material-icons-round search-icon">search</span>
+                <input type="text" placeholder="Search or start a new chat" class="search-input" />
+            </div>
+
+            <div class="filter-tabs">
+                <button class="tab active">All</button>
+                <button class="tab">Unread <span class="tab-badge">3</span></button>
+                <button class="tab">Favorites</button>
+                <button class="tab">Groups</button>
+            </div>
+
+            <div class="chat-list">
+
+                <!-- Bot chat -->
+                <div class="chat-item" data-chat="bot">
+                    <div class="chat-avatar bot-avatar">
+                        <span class="material-icons-round" style="font-size:26px;color:#00a884;">smart_toy</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-top">
+                            <span class="chat-name">vendor bot</span>
+                            <span class="chat-time" id="botLastTime">now</span>
+                        </div>
+                        <div class="chat-bottom">
+                            <span class="chat-preview" id="botPreview">Welcome! Complete your onboarding...</span>
+                        </div>
+                    </div>
+                    <div class="chat-item-divider"></div>
+                </div>
+
+                <!-- Static sample chats -->
+
+
+
+
+
+                <div class="chat-item" data-chat="workshops">
+                    <div class="chat-avatar img-avatar">
+                        <span class="material-icons-round" style="color:#0ea5e9;font-size:28px;">auto_awesome</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-top">
+                            <span class="chat-name">Heritage Workshops <span class="biz-verified"
+                                    title="Official Business"
+                                    style="font-size:12px;margin-left:3px;color:#0ea5e9;">✓</span></span>
+                            <span class="chat-time" style="color:#0ea5e9;">AUTO</span>
+                        </div>
+                        <div class="chat-bottom">
+                            <span class="chat-preview">API Auto-Booking Engine Active ⚡</span>
+                        </div>
+                    </div>
+                    <div class="chat-item-divider"></div>
+                </div>
+
+                <div class="chat-item" data-chat="notifications">
+                    <div class="chat-avatar img-avatar" style="background:#25d366;">
+                        <span class="material-icons-round" style="color:#fff;font-size:26px;">storefront</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-top">
+                            <span class="chat-name">online orders <span class="biz-verified" title="Official Business"
+                                    style="font-size:12px;margin-left:3px;color:#25d366;">✓</span></span>
+                            <span class="chat-time" style="color:#25d366;">1 NEW</span>
+                        </div>
+                        <div class="chat-bottom">
+                            <span class="chat-preview" style="color:#fff;">Incoming Order Alert 📦</span>
+                        </div>
+                    </div>
+                    <div class="chat-item-divider"></div>
+                </div>
+
+                <!-- Offline Manager Chat -->
+                <div class="chat-item" data-chat="offlineManager">
+                    <div class="chat-avatar img-avatar" style="background:#555;">
+                        <span class="material-icons-round" style="color:#fff;font-size:26px;">point_of_sale</span>
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-top">
+                            <span class="chat-name">Offline Manager <span class="biz-verified" title="Internal Bot"
+                                    style="font-size:12px;margin-left:3px;background:#555;color:#fff;">✓</span></span>
+                            <span class="chat-time" style="color:#999;">BOT</span>
+                        </div>
+                        <div class="chat-bottom">
+                            <span class="chat-preview" style="color:#999;">Manage walk-ins & inventory 🏪</span>
+                        </div>
+                    </div>
+                    <div class="chat-item-divider"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════ CHAT WINDOW ══════════════ -->
+        <main class="chat-window" id="chatWindow">
+
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div class="chat-avatar bot-avatar" id="headerAvatar" style="width:40px;height:40px;">
+                        <span class="material-icons-round" style="font-size:24px;color:#00a884;">smart_toy</span>
+                    </div>
+                    <div class="chat-header-info">
+                        <span class="chat-header-name" id="headerName">vendor bot</span>
+                        <span class="chat-header-sub" id="headerSub">🟢 Online – Cloud API Active</span>
+                    </div>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="icon-btn-header" title="Voice Call"><span
+                            class="material-icons-round">call</span></button>
+                    <button class="icon-btn-header" title="Search"><span
+                            class="material-icons-round">search</span></button>
+                    <button class="icon-btn-header" title="More"><span
+                            class="material-icons-round">more_vert</span></button>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="chat-bg" id="chatBg">
+                <div class="messages-area" id="messagesArea">
+                    <div class="date-separator"><span>Today</span></div>
+                </div>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="chat-input-bar">
+                <!-- Plus Menu Trigger -->
+                <div class="plus-wrapper">
+                    <button class="input-icon-btn" id="plusBtn" title="More options">
+                        <span class="material-icons-round">add_circle_outline</span>
+                    </button>
+                    <!-- Popup Menu -->
+                    <div class="plus-menu" id="plusMenu">
+                        <div class="plus-menu-item" id="onboardingTrigger">
+                            <div class="plus-menu-icon" style="background:#7c3aed;">
+                                <span class="material-icons-round">store</span>
+                            </div>
+                            <span>Onboarding</span>
+                        </div>
+                        <div class="plus-menu-item" id="orderTrackerTrigger">
+                            <div class="plus-menu-icon" style="background:#f59e0b;">
+                                <span class="material-icons-round">local_shipping</span>
+                            </div>
+                            <span>Order Track</span>
+                        </div>
+                        <div class="plus-menu-item">
+                            <div class="plus-menu-icon" style="background:#0ea5e9;">
+                                <span class="material-icons-round">photo_library</span>
+                            </div>
+                            <span>Gallery</span>
+                        </div>
+                        <div class="plus-menu-item">
+                            <div class="plus-menu-icon" style="background:#16a34a;">
+                                <span class="material-icons-round">description</span>
+                            </div>
+                            <span>Document</span>
+                        </div>
+                        <div class="plus-menu-item">
+                            <div class="plus-menu-icon" style="background:#ea580c;">
+                                <span class="material-icons-round">location_on</span>
+                            </div>
+                            <span>Location</span>
+                        </div>
+                        <div class="plus-menu-item">
+                            <div class="plus-menu-icon" style="background:#db2777;">
+                                <span class="material-icons-round">person</span>
+                            </div>
+                            <span>Contact</span>
+                        </div>
+                        <div class="plus-menu-item">
+                            <div class="plus-menu-icon" style="background:#d97706;">
+                                <span class="material-icons-round">poll</span>
+                            </div>
+                            <span>Poll</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="input-icon-btn" id="emojiBtn">
+                    <span class="material-icons-round">sentiment_satisfied_alt</span>
+                </button>
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type a message" />
+                </div>
+                <button class="input-icon-btn" id="sendBtn">
+                    <span class="material-icons-round">mic</span>
+                </button>
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- ══════ Hidden file input ══════ -->
+    <input type="file" id="fileInput" accept="image/*,.pdf" style="display:none" />
+
+    <script src="app.js"></script>
+</body>
+
+</html>
